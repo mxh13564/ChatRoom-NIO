@@ -14,7 +14,7 @@ ChatRoom是以三层缓冲为基础，使用NIO搭建的即时通讯工具。
 ![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/dc583348-19d9-4a36-b9e9-234ef11f98be)
 
 # 使用方式
-## 环境要求：在终端中输入java -version，如与一下描述相同即可。
+## 环境要求：在终端中输入java -version，与以下描述相同即可。
 ### ![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/1461ea66-fe92-41c6-a75f-d2f4476f6cdc)
 
 ## 1、局域网
