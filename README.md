@@ -11,7 +11,8 @@ ChatRoom是以三层缓冲为基础，使用NIO搭建的即时通讯工具。
 ## cpu性能
 ![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/0c797b28-9294-45ea-8ea5-2d8f53aa6768)
 ## 内存消耗
-![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/18f2945a-497f-4bb6-97fa-1f38a134c793)
+![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/dc583348-19d9-4a36-b9e9-234ef11f98be)
+
 
 
 
