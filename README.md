@@ -15,7 +15,7 @@ ChatRoom是以三层缓冲为基础，使用NIO搭建的即时通讯工具。
 
 # 使用方式
 ## 环境要求：在终端中输入java -version，如与一下描述相同即可。
-###![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/1461ea66-fe92-41c6-a75f-d2f4476f6cdc)
+### ![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/1461ea66-fe92-41c6-a75f-d2f4476f6cdc)
 
 ## 1、局域网
 ### a、使用maven工具将项目打成jar包。
@@ -23,12 +23,12 @@ ChatRoom是以三层缓冲为基础，使用NIO搭建的即时通讯工具。
 ### c、将server.jar通过java -jar server.jar的方式在终端部署。
 ### d、将其余两个client.jar通过相同方式部署在其余两个终端上。
 
-## 2、效果如下：
+### 效果如下：
 
-### 服务端部署
+#### 服务端部署
 ![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/7cef9137-2379-407a-a786-00f4974cf9ea)
 
-### 客户端部署
+#### 客户端部署
 ![image](https://github.com/mxh13564/ChatRoom-NIO/assets/116016729/8ed75c3b-badc-49a2-a168-9b7efcbe6ac5)
 
 ## 2、公网
