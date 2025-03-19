@@ -143,7 +143,6 @@ public class AsyncPacketReader implements Closeable {
                 if(nextFrame!=null){
                     appendNewFrame(nextFrame);
                 }else if(frame instanceof SendEntityFrame){
-                    //这个帧不一定是最后一个帧？？（没懂）
                     provider.completedPacket(((SendEntityFrame) frame).getPacket(),true);
                 }
                 popCurrentFrame();

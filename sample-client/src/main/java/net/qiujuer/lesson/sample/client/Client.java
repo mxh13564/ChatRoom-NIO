@@ -17,7 +17,6 @@ public class Client {
                 .ioProvider(new IoStealingSelectorProvider(2))
                 .start();
         ServerInfo info = UDPSearcher.searchServer(100000);
-//        ServerInfo info=new ServerInfo(30402,"116.63.168.61","mxh");
         System.out.println("Server:" + info);
         if (info != null) {
             TCPClientFinal tcpClient = null;
