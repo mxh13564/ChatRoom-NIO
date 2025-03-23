@@ -23,7 +23,7 @@ public class ClientTest {
 
         File cachePath= Foo.getCacheDir("client/test");
         IoContext.setup()
-                .ioProvider(new IoStealingSelectorProvider(1))
+                .ioProvider(new IoStealingSelectorProvider(4))
                 .start();
 
         // 当前连接数量
