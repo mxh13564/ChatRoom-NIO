@@ -1,11 +1,8 @@
 package net.qiujuer.lesson.sample.foo;
 
-import javafx.util.Pair;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 public class Foo {
@@ -31,7 +28,6 @@ public class Foo {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Pair<String,File> pair = new Pair<>(string,file);
         return file;
     }
 
