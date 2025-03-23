@@ -3,7 +3,7 @@ import net.qiujuer.lesson.sample.client.UDPSearcher;
 import net.qiujuer.lesson.sample.client.bean.ServerInfo;
 import net.qiujuer.lesson.sample.foo.Foo;
 import net.qiujuer.library.clink.core.IoContext;
-import net.qiujuer.library.clink.impl.IoSelectorProvider;
+import net.qiujuer.library.clink.impl.IoStealingSelectorProvider;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,10 +14,6 @@ public class ClientTest {
     private static boolean done;
 
     public static void main(String[] args) throws IOException {
-        File cachePath= Foo.getCacheDir("client/test");
-        IoContext.setup()
-                .ioProvider(new IoSelectorProvider())
-                .start();
 
         ServerInfo info = UDPSearcher.searchServer(10000);
         System.out.println("Server:" + info);
@@ -25,10 +21,15 @@ public class ClientTest {
             return;
         }
 
+        File cachePath= Foo.getCacheDir("client/test");
+        IoContext.setup()
+                .ioProvider(new IoStealingSelectorProvider(1))
+                .start();
+
         // 当前连接数量
         int size = 0;
         final List<TCPClientFinal> tcpClients = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 2000; i++) {
             try {
                 TCPClientFinal tcpClient = TCPClientFinal.startWith(info,cachePath);
                 if (tcpClient == null) {
@@ -61,28 +62,36 @@ public class ClientTest {
                     tcpClient.send("Hello~~");
                 }
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(400);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         };
 
-        Thread thread = new Thread(runnable);
-        thread.start();
+        List<Thread> threads = new ArrayList<>(4);
+        for (int i = 0; i < 4; i ++) {
+            Thread thread = new Thread(runnable);
+            thread.start();
+            threads.add(thread);
+        }
         System.in.read();
 
         // 等待线程完成
         done = true;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         // 客户端结束操作
         for (TCPClientFinal tcpClient : tcpClients) {
             tcpClient.exit();
+        }
+
+        IoContext.close();
+
+        for (Thread thread : threads) {
+            try {
+                thread.interrupt();
+            } catch (Exception e) {
+            }
         }
     }
 

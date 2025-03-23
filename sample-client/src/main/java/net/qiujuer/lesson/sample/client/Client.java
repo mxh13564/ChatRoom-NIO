@@ -14,7 +14,7 @@ public class Client {
     public static void main(String[] args) throws IOException {
         File cachePath= Foo.getCacheDir("client");
         IoContext.setup()
-                .ioProvider(new IoStealingSelectorProvider(2))
+                .ioProvider(new IoStealingSelectorProvider(1))
                 .start();
         ServerInfo info = UDPSearcher.searchServer(100000);
         System.out.println("Server:" + info);

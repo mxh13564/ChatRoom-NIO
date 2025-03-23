@@ -70,7 +70,7 @@ public class UDPSearcher {
         DatagramPacket requestPacket = new DatagramPacket(byteBuffer.array(),
                 byteBuffer.position() + 1);
 
-        requestPacket.setAddress(InetAddress.getByName("192.168.231.170"));
+        requestPacket.setAddress(InetAddress.getByName("127.0.0.1"));
         //设置服务器端口
         requestPacket.setPort(UDPConstants.PORT_SERVER);
 

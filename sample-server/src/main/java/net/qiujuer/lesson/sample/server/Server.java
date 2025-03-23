@@ -16,7 +16,7 @@ public class Server {
     public static void main(String[] args) throws IOException {
         File cachePath= Foo.getCacheDir("server");
         IoContext.setup()
-                .ioProvider(new IoStealingSelectorProvider(2))
+                .ioProvider(new IoStealingSelectorProvider(4))
                 .scheduler(new SchedulerImpl(1))
                 .start();
 
