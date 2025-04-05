@@ -19,7 +19,7 @@ import java.util.UUID;
 
 public abstract class ConnectorFinal implements Closeable, SocketChannelAdapterFinal.OnChannelStatusChangedListener {
     protected UUID key = UUID.randomUUID();
-    private SocketChannel channel;
+    public static SocketChannel channel;
     private SenderFinal sender;
     private ReceiverFinal receiver;
     private SendDispatcher sendDispatcher;
@@ -37,7 +37,6 @@ public abstract class ConnectorFinal implements Closeable, SocketChannelAdapterF
 
         sendDispatcher = new AsyncSendDispatcher(sender);
         receivedDispatcher=new AsynReceiveDispatcher(receiver,receivedPacketCallback);
-
         receivedDispatcher.start();
     }
 

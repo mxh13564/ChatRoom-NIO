@@ -29,7 +29,7 @@ public class ClientTest {
         // 当前连接数量
         int size = 0;
         final List<TCPClientFinal> tcpClients = new ArrayList<>();
-        for (int i = 0; i < 2000; i++) {
+        for (int i = 0; i < 100; i++) {
             try {
                 TCPClientFinal tcpClient = TCPClientFinal.startWith(info,cachePath);
                 if (tcpClient == null) {

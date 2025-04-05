@@ -3,7 +3,6 @@ package net.qiujuer.lesson.sample.server;
 import net.qiujuer.lesson.sample.foo.Foo;
 import net.qiujuer.lesson.sample.foo.constants.TCPConstants;
 import net.qiujuer.library.clink.core.IoContext;
-import net.qiujuer.library.clink.impl.IoSelectorProvider;
 import net.qiujuer.library.clink.impl.IoStealingSelectorProvider;
 import net.qiujuer.library.clink.impl.SchedulerImpl;
 
@@ -27,7 +26,7 @@ public class Server {
             return;
         }
 
-        UDPProvider.start(TCPConstants.PORT_SERVER);
+//        UDPProvider.start(TCPConstants.PORT_SERVER);
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String str ;
@@ -38,7 +37,7 @@ public class Server {
             tcpServer.broadcast(str);
         } while (true);
 
-        UDPProvider.stop();
+//        UDPProvider.stop();
         tcpServer.stop();
 
         IoContext.close();

@@ -121,10 +121,6 @@ public class TCPServerPlusFinal implements ClientHandlerPulsFinal.ClientHandlerC
             public void run() {
                 synchronized (clientHandlerList) {
                     for (ClientHandlerPulsFinal clientHandler : clientHandlerList) {
-                        if (clientHandler.equals(handler)) {
-                            // 跳过自己
-                            continue;
-                        }
                         // 对其他客户端发送消息
                         clientHandler.send(msg);
                     }
@@ -142,10 +138,6 @@ public class TCPServerPlusFinal implements ClientHandlerPulsFinal.ClientHandlerC
                 if(file.exists() && file.isFile()) {
                     FileSendPacket packet = new FileSendPacket(file);
                     for (ClientHandlerPulsFinal clientHandler : clientHandlerList) {
-                        if (clientHandler.equals(handler)) {
-                            // 跳过自己
-                            continue;
-                        }
                         // 对其他客户端发送消息
                         clientHandler.send(packet);
                     }

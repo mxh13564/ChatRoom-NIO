@@ -12,6 +12,7 @@ public class Foo {
     public static File getCacheDir(String dir) {
         String path = System.getProperty("user.dir") + (File.separator + CACHE_DIR + File.separator + dir);
         File file = new File(path);
+        System.out.println(path);
         if (!file.exists()) {
             if (!file.mkdirs()) {
                 throw new RuntimeException("Create path error:" + path);
@@ -21,7 +22,7 @@ public class Foo {
     }
 
     public static File createRandomTemp(File parent) {
-        String string = UUID.randomUUID() + ".tmp";
+        String string = UUID.randomUUID() + ".rtf";
         File file = new File(parent, string);
         try {
             file.createNewFile();
